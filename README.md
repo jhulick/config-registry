@@ -5,20 +5,18 @@ This repository is an example of how to get Microservices going using MAX PaaS.
 # Table of Content
 * [Application Architecture](#application-architecture)
 * [Using the application](#using-application)
-    * [Running on local m/c](#run_local_mc)
+    * [Running local](#run_local_mc)
 * [Microservices Overview](#microservices-overview)
 * [Netflix OSS](#netflix-oss)
 * [Spring Boot Overview](#spring-boot-overview)
 * [Spring Cloud Overview](#spring-cloud-overview)
 * [Spring Cloud Config Overview](#spring-cloud-config-overview)
 * [Spring Cloud Netflix Overview](#spring-cloud-netflix-overview)
-* [OAuth 2.0 Overview](#oauth-2.0-overview)
-* [Spring OAuth 2.0 Overview](#spring-oauth-2.0-overview)
 
 
 ## <a name="application-architecture"></a>Application Architecture
 
-The application consists of 7 different services 
+The application consists of 5 different services 
 
 * [config server](config-service/README.md) - setup external configuration
 * [webservice-registry](eureka-service/README.md) - Eureka server
