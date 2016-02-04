@@ -1,0 +1,42 @@
+buildscript {
+    project.ext {
+        bootVersion = '1.2.6.RELEASE'
+        restletVersion = '2.3.4'
+        cloudVersion = '1.0.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        maven {
+            url 'http://maven.restlet.org'
+        }
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.2.6.RELEASE"
+        classpath "io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'spring-boot'
+
+group = 'org.test'
+version = '0.0.1-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+        
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+dependencies {
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-config-server', version:'1.0.1.RELEASE'
+    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'1.2.3.RELEASE') {
+        exclude(module: 'commons-logging')
+    }
+}

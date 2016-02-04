@@ -1,0 +1,70 @@
+buildscript {
+    project.ext {
+        bootVersion = '1.2.6.RELEASE'
+        restletVersion = '2.3.4'
+        cloudVersion = '1.0.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        mavenLocal()
+        maven {
+            url 'http://maven.restlet.org'
+        }
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:1.2.6.RELEASE"
+        classpath "io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE"
+    }
+}
+
+
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'spring-boot'
+
+group = 'org.test'
+version = '0.0.1-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+     maven { url "http://repo.maven.apache.org/maven2" }
+}
+
+dependencies {
+    compile group: 'com.jayway.jsonpath', name: 'json-path', version:'0.9.1'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-config-client', version:'1.0.1.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-hateoas', version:'1.2.3.RELEASE'
+    compile(group: 'org.springframework.cloud', name: 'spring-cloud-starter-eureka', version:'1.0.1.RELEASE') {
+        exclude(module: 'guice-grapher')
+        exclude(module: 'guice-assistedinject')
+        exclude(module: 'jsr166y')
+        exclude(module: 'xbean-finder')
+        exclude(module: 'asm-all')
+        exclude(module: 'guice-multibindings')
+        exclude(module: 'xbean-bundleutils')
+        exclude(module: 'commons-math')
+        exclude(module: 'netflix-infix')
+        exclude(module: 'joda-time')
+        exclude(module: 'commons-jxpath')
+        exclude(module: 'antlr-runtime')
+        exclude(module: 'stringtemplate')
+        exclude(module: 'antlr')
+        exclude(module: 'gson')
+        exclude(module: 'annotations')
+        exclude(module: 'dagger')
+        exclude(module: 'blitz4j')
+        exclude(module: 'hibernate-validator')
+    }
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-feign', version:'1.0.1.RELEASE'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-hystrix', version:'1.0.1.RELEASE'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-ribbon', version:'1.0.1.RELEASE'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-starter-zuul', version:'1.0.1.RELEASE'
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version:'1.2.3.RELEASE'
+    testCompile(group: 'org.springframework.boot', name: 'spring-boot-starter-test', version:'1.2.3.RELEASE') {
+        exclude(module: 'commons-logging')
+    }
+}
