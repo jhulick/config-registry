@@ -5,4 +5,5 @@ support/build
 build
 *.iml
 .idea
+.gradle
 .DS_Store
